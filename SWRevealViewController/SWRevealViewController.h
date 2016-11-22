@@ -181,24 +181,25 @@ typedef NS_ENUM(NSInteger, SWRevealToggleAnimationType)
     SWRevealToggleAnimationTypeEaseOut,   // <- produces an ease out curve animation
 };
 
+NS_ASSUME_NONNULL_BEGIN;
 
 @interface SWRevealViewController : UIViewController
 
 /* Basic API */
 
 // Object instance init and rear view setting
-- (id)initWithRearViewController:(UIViewController *)rearViewController frontViewController:(UIViewController *)frontViewController;
+- (instancetype)initWithRearViewController:(UIViewController *)rearViewController frontViewController:(nullable UIViewController *)frontViewController;
 
 // Rear view controller, can be nil if not used
-@property (nonatomic) UIViewController *rearViewController;
+@property (nonatomic, nullable) UIViewController *rearViewController;
 - (void)setRearViewController:(UIViewController *)rearViewController animated:(BOOL)animated;
 
 // Optional right view controller, can be nil if not used
-@property (nonatomic) UIViewController *rightViewController;
+@property (nonatomic, nullable) UIViewController *rightViewController;
 - (void)setRightViewController:(UIViewController *)rightViewController animated:(BOOL)animated;
 
 // Front view controller, can be nil on initialization but must be supplied by the time the view is loaded
-@property (nonatomic) UIViewController *frontViewController;
+@property (nonatomic, nullable) UIViewController *frontViewController;
 - (void)setFrontViewController:(UIViewController *)frontViewController animated:(BOOL)animated;
 
 // Sets the frontViewController using a default set of chained animations consisting on moving the
@@ -413,6 +414,8 @@ extern NSString* const SWSegueRightIdentifier; // this is @"sw_right"
 // Use this to push a view controller
 @interface SWRevealViewControllerSeguePushController : UIStoryboardSegue
 @end
+
+NS_ASSUME_NONNULL_END;
 
 
 //#pragma mark - SWRevealViewControllerSegue (DEPRECATED)
